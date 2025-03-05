@@ -18,6 +18,7 @@ func main() {
 	app.Use(recover.New())
 
 	v1 := app.Group("/v1")
+
 	v1.Get("/ping", func(ctx *fiber.Ctx) error {
 		return ctx.Status(200).JSON(fiber.Map{"code": 200, "message": "ping-pong"})
 	})
