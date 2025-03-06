@@ -10,9 +10,10 @@ import (
 )
 
 type ConfigDTO struct {
-	port         string
-	secret_key   string
-	database_url string
+	port          string
+	secret_key    string
+	database_url  string
+	database_name string
 }
 
 var env ConfigDTO
@@ -25,9 +26,10 @@ func LoadEnvVariable() {
 	}
 
 	env = ConfigDTO{
-		port:         os.Getenv("PORT"),
-		secret_key:   os.Getenv("SECRET_KEY"),
-		database_url: os.Getenv("MONGODB_URL"),
+		port:          os.Getenv("PORT"),
+		secret_key:    os.Getenv("SECRET_KEY"),
+		database_url:  os.Getenv("MONGODB_URL"),
+		database_name: os.Getenv("DATABASE_NAME"),
 	}
 }
 
